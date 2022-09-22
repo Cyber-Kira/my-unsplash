@@ -16,7 +16,7 @@ const initialState: InitialStateInterface = {
 }
 
 export const fetchImages = createAsyncThunk('file/images', async () => {
-	const images = fetch('http://localhost:5000/gallery')
+	const images = fetch('https://my-unsplash-v0rc.onrender.com/gallery')
 		.then(res => res.json())
 		.then(data => data)
 

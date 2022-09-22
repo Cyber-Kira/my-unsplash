@@ -1,5 +1,4 @@
-import express, { json } from "express";
-import fs from "fs";
+import express from "express";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 import { images } from "./images.js";

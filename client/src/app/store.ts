@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import { fileSlice } from '../features/file/fileSlice'
 
 export const store = configureStore({
-	reducer: {},
+	reducer: {
+		file: fileSlice.reducer,
+	},
 })
 
 export type AppDispatch = typeof store.dispatch

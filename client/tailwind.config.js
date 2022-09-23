@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				poppins: 'Poppins, sans-serif',
+				noto: 'Noto Sans, sans-serif',
 			},
 			boxShadow: {
 				button: '0px 1px 6px rgba(0, 0, 0, 0.1)',

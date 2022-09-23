@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 import { fileSlice } from '../features/file/fileSlice'
+import { uiSlice } from '../features/ui/uiSlice'
 
 export const store = configureStore({
 	reducer: {
 		file: fileSlice.reducer,
+		ui: uiSlice.reducer,
 	},
 })
 

@@ -13,7 +13,7 @@ export const BackToTop = () => {
 	return (
 		<button
 			type='button'
-			className='flex justify-center items-center fixed bottom-24 right-5 p-4 rounded-full shadow-button bg-white text-dark opacity-0 expand-at-bottom'
+			className='flex justify-center items-center fixed bottom-24 right-5 xl:right-20 p-4 rounded-full shadow-button bg-white text-dark opacity-0 expand-at-bottom'
 			onClick={() => scrollToTop()}
 		>
 			<span className='material-icons'>keyboard_arrow_up</span>

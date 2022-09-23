@@ -9,12 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/upload", (req, res) => {
-  images.push({
+  images.unshift({
     id: uuidv4(),
     ...req.body,
   });
 
-  res.send(`saved`);
+  res.send(images);
 });
 
 app.get("/gallery", (req, res) => {

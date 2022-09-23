@@ -4,11 +4,12 @@ export const observeScroll = () => {
 
 	const checkPosition = () => {
 		const windowY = window.scrollY
-		if (windowY < scrollPos && nav) {
+		const windowWidth = window.innerWidth
+		if (windowY < scrollPos && nav && windowWidth < 768) {
 			// Scrolling UP
 			nav.classList.add('animate-bubbleExpand')
 			nav.classList.remove('animate-bubbleShrink')
-		} else if (nav) {
+		} else if (nav && windowWidth < 768) {
 			// Scrolling DOWN
 			nav.classList.add('animate-bubbleShrink')
 			nav.classList.remove('animate-bubbleExpand')
@@ -29,6 +30,7 @@ export const onScrollHeight = (topHeight: number) => {
 		if ((scrollPos > topHeight || windowY > topHeight) && nav) {
 			nav.classList.add('animate-bubbleExpand')
 			nav.classList.add('opacity-100')
+			nav.classList.remove('opacity-0')
 			nav.classList.remove('animate-bubbleShrink')
 		} else if (nav) {
 			nav.classList.add('animate-bubbleShrink')

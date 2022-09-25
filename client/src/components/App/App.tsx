@@ -1,6 +1,7 @@
 import React from 'react'
 import { AddImage } from '../Buttons/AddImage'
 import { BackToTop } from '../Buttons/BackToTop'
+import { DeleteImagePopup } from '../DeleteImagePopup/DeleteImagePopup'
 import { Gallery } from '../Gallery/Gallery'
 import { PhotoFormPopup } from '../PhotoFormPopup/PhotoFormPopup'
 import { Search } from '../Search/Search'
@@ -14,6 +15,7 @@ export const App = () => {
 				<Search />
 				<BackToTop />
 				<PhotoFormPopup />
+				<DeleteImagePopup />
 				<AddImage />
 			</nav>
 			<Gallery />

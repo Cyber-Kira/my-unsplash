@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-interface ImagesInterface {
-	id: String
-	label: String
-	url: String
+export interface ImagesInterface {
+	id: string
+	label: string
+	url: string
 }
 
 interface InitialStateInterface {
@@ -16,7 +16,7 @@ const initialState: InitialStateInterface = {
 	images: [{ id: '', label: '', url: '' }],
 }
 
-export const fetchImages = createAsyncThunk('file/images', async () => {
+export const fetchImages = createAsyncThunk('file/fetchImages', async () => {
 	const images = fetch('http://localhost:5000/gallery')
 		.then(res => res.json())
 		.then(data => data)
@@ -33,6 +33,23 @@ export const addImage = createAsyncThunk(
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({ label, url }),
+		})
+			.then(res => res.json())
+			.then(data => data)
+
+		return newImageCollection
+	}
+)
+
+export const deleteImage = createAsyncThunk(
+	'file/deleteImage',
+	async ({ id, password }: { id: string; password: string }) => {
+		const newImageCollection = fetch('http://localhost:5000/delete', {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ id, password }),
 		})
 			.then(res => res.json())
 			.then(data => data)
@@ -65,6 +82,16 @@ export const fileSlice = createSlice({
 				state.isLoading = false
 			})
 			.addCase(addImage.rejected, state => {
+				state.isLoading = false
+			})
+			.addCase(deleteImage.pending, state => {
+				state.isLoading = true
+			})
+			.addCase(deleteImage.fulfilled, (state, { payload }) => {
+				state.images = payload
+				state.isLoading = false
+			})
+			.addCase(deleteImage.rejected, state => {
 				state.isLoading = false
 			}),
 })

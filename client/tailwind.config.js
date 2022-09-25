@@ -5,6 +5,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				noto: 'Noto Sans, sans-serif',
+				montserrat: 'Montserrat, sans-serif',
 			},
 			boxShadow: {
 				button: '0px 1px 6px rgba(0, 0, 0, 0.1)',
@@ -26,10 +27,22 @@ module.exports = {
 						transform: 'scale(0)',
 					},
 				},
+
+				slideIn: {
+					'0%': {
+						transform: 'translateY(-15%)',
+						opacity: '0%',
+					},
+					'100%': {
+						transform: 'translateY(0)',
+						opacity: '100%',
+					},
+				},
 			},
 			animation: {
 				bubbleExpand: 'expand .20s ease-out forwards',
 				bubbleShrink: 'shrink .15s ease-in forwards',
+				slideIn: 'slideIn .35s ease-out forwards',
 			},
 		},
 		colors: {
@@ -44,5 +57,5 @@ module.exports = {
 			accentRed: '#EB5757',
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/line-clamp')],
 }

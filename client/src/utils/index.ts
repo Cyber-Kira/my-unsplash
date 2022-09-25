@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export const observeScroll = () => {
 	let scrollPos = 0
 	const nav = document.querySelector('.expand-on-scroll')
@@ -40,4 +42,25 @@ export const onScrollHeight = (topHeight: number) => {
 	}
 
 	window.addEventListener('scroll', checkPosition)
+}
+
+export const checkIfImageExists = (
+	url: string,
+	callback: (isExists: boolean) => ReactNode
+) => {
+	const img = new Image()
+	img.src = url
+
+	if (!img.complete) {
+		return callback(false)
+	}
+
+	img.onload = () => {
+		return callback(true)
+	}
+	img.onerror = () => {
+		return callback(false)
+	}
+
+	return callback(true)
 }

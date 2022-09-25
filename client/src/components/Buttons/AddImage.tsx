@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch } from '../../app/hooks'
-import { setIsOpen } from '../../features/ui/uiSlice'
+import { setIsAddImageOpen } from '../../features/ui/uiSlice'
 import { observeScroll } from '../../utils'
 
 export const AddImage = () => {
@@ -11,13 +11,13 @@ export const AddImage = () => {
 	}, [])
 
 	const handleClick = () => {
-		dispatch(setIsOpen(true))
+		dispatch(setIsAddImageOpen(true))
 	}
 
 	return (
 		<button
 			type='button'
-			className='flex justify-center items-center fixed bottom-5 right-5 p-4 rounded-full shadow-button bg-accentGreen text-white expand-on-scroll md:relative md:ml-auto md:rounded-xl md:inset-0'
+			className='flex justify-center items-center fixed bottom-5 right-5 p-4 rounded-full shadow-button bg-accentGreen text-white expand-on-scroll md:relative md:ml-auto md:rounded-xl md:inset-0 z-20'
 			onClick={handleClick}
 		>
 			<span className='material-icons block md:hidden'>add</span>

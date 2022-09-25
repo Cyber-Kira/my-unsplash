@@ -5,3 +5,20 @@
 body {
 	background-color: #ffffff;
 }
+
+/* Masonry Grid */
+.my-masonry-grid {
+	display: flex;
+	margin-left: -42px; /* gutter size offset */
+	width: auto;
+}
+.my-masonry-grid_column {
+	padding-left: 42px; /* gutter size */
+	background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > figure {
+	border-radius: 0.75rem;
+	margin-bottom: 46px;
+}

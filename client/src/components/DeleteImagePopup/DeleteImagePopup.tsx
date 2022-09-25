@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { deleteImage, fetchImages } from '../../features/file/fileSlice'
+import { deleteImage } from '../../features/file/fileSlice'
 import { setIsDeleteImageOpen } from '../../features/ui/uiSlice'
 
 export const DeleteImagePopup = () => {
@@ -13,7 +13,6 @@ export const DeleteImagePopup = () => {
 
 		dispatch(deleteImage({ id, password }))
 		dispatch(setIsDeleteImageOpen(false))
-		dispatch(fetchImages())
 		setPassword('')
 	}
 

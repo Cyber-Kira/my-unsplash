@@ -14,8 +14,6 @@ export const PhotoFormPopup = () => {
 		e.preventDefault()
 
 		dispatch(addImage({ label, url }))
-		dispatch(fetchImages())
-
 		dispatch(setIsAddImageOpen(false))
 		setLabel('')
 		setUrl('')

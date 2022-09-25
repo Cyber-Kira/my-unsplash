@@ -34,10 +34,9 @@ app.delete("/delete", (req, res) => {
 
   if (password && password.length > 0) {
     images.splice(foundImageIndex, 1);
-    res.send(`Image ${foundImage.label} was deleted!`);
-  } else {
-    res.send(`No password was provided. Can't delete an image`);
   }
+
+  res.send(images);
 });
 
 const port = process.env.PORT || 5000;

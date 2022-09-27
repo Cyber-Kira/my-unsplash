@@ -3,14 +3,11 @@ import React, { useEffect } from 'react'
 import Masonry from 'react-masonry-css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { deleteImage, fetchImages } from '../../features/file/fileSlice'
+import { fetchImages } from '../../features/file/fileSlice'
 import {
 	saveCurrentImageSelected,
 	setIsDeleteImageOpen,
 } from '../../features/ui/uiSlice'
-import { checkIfImageExists } from '../../utils'
-import { DeleteImagePopup } from '../DeleteImagePopup/DeleteImagePopup'
-import ErrorImage from './error.png'
 
 const breakpointColumnsObj = {
 	default: 3,
@@ -22,7 +19,7 @@ export const Gallery = () => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(fetchImages())
+		dispatch(fetchImages(''))
 	}, [])
 
 	const handleClick = (body: { id: string }) => {

@@ -16,27 +16,31 @@ const initialState: InitialStateInterface = {
 	images: null,
 }
 
-export const fetchImages = createAsyncThunk('file/fetchImages', async () => {
-	const images = fetch('https://my-unsplash-v0rc.onrender.com/gallery')
-		.then(res => res.json())
-		.then(data => data)
+export const fetchImages = createAsyncThunk(
+	'file/fetchImages',
+	async (searchString: string) => {
+		const images = fetch('http://localhost:5000/gallery')
+			.then(res => res.json())
+			.then((data: ImagesInterface[]) => {
+				return data.filter(({ label }) =>
+					label.toLowerCase().includes(searchString.toLowerCase())
+				)
+			})
 
-	return images
-})
+		return images
+	}
+)
 
 export const addImage = createAsyncThunk(
 	'file/addImage',
 	async ({ label, url }: { label: string; url: string }) => {
-		const newImageCollection = fetch(
-			'https://my-unsplash-v0rc.onrender.com/upload',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ label, url }),
-			}
-		)
+		const newImageCollection = fetch('http://localhost:5000/upload', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ label, url }),
+		})
 			.then(res => res.json())
 			.then(data => data)
 
@@ -47,16 +51,13 @@ export const addImage = createAsyncThunk(
 export const deleteImage = createAsyncThunk(
 	'file/deleteImage',
 	async ({ id, password }: { id: string; password: string }) => {
-		const newImageCollection = fetch(
-			'https://my-unsplash-v0rc.onrender.com/delete',
-			{
-				method: 'DELETE',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ id, password }),
-			}
-		)
+		const newImageCollection = fetch('http://localhost:5000/delete', {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ id, password }),
+		})
 			.then(res => res.json())
 			.then(data => data)
 

@@ -40,7 +40,7 @@ export const DeleteImagePopup = () => {
 				<div className='w-full min-h-[3.4375rem]'>
 					<input
 						className='absolute w-full min-h-[3.4375rem] px-[1.125rem] border border-lightDark shadow-button focus:outline-none rounded-xl'
-						placeholder='Water bottle'
+						placeholder='******************'
 						type='password'
 						name='password'
 						id='password'
@@ -59,10 +59,10 @@ export const DeleteImagePopup = () => {
 					Close
 				</button>
 				<button
-					className='max-w-[6.5625rem] min-h-[3.4375rem] w-full bg-accentGreen rounded-xl font-noto font-bold text-base leading-[22px] text-white'
+					className='max-w-[6.5625rem] min-h-[3.4375rem] w-full bg-accentRed rounded-xl font-noto font-bold text-base leading-[22px] text-white'
 					type='submit'
 				>
-					Submit
+					Delete
 				</button>
 			</div>
 		</form>

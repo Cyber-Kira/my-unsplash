@@ -22,3 +22,8 @@ body {
 	border-radius: 0.75rem;
 	margin-bottom: 46px;
 }
+
+.stop-scrolling {
+	height: 100%;
+	overflow: hidden;
+}

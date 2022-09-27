@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from 'react'
 import Masonry from 'react-masonry-css'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useAppSelector, useAppDispatch } from '../../app/hooks'
 import { fetchImages } from '../../features/file/fileSlice'
 import {
@@ -63,7 +62,13 @@ export const Gallery = () => {
 											delete
 										</button>
 									</div>
-									<LazyLoadImage src={`${image.url}`} alt={`${image.label}`} />
+									<img
+										src={`${image.url}`}
+										alt={`${image.label}`}
+										loading='lazy'
+										width='450px'
+										height='500px'
+									/>
 								</figure>
 							)
 					  })}
